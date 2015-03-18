@@ -19,5 +19,5 @@ RUN sudo chmod 666 /home/deegree/apache-tomcat-8.0.20/bin/catalina.sh
 RUN wget http://repo.deegree.org/content/repositories/public/org/deegree/deegree-webservices/${DEEGREE_VERSION}/deegree-webservices-${DEEGREE_VERSION}.war -O /home/deegree/apache-tomcat-8.0.20/deegree-webservices.war
 
 
-CMD /home/deegree/apache-tomcat-8.0.20/bin/catalina.sh start
+CMD /home/deegree/apache-tomcat-8.0.20/bin/catalina.sh run
 
