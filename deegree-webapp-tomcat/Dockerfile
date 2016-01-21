@@ -1,23 +1,13 @@
-FROM dockerfile/java
+FROM tomcat:8-jre7
 
-MAINTAINER Sebastian Goerke <goerke@lat-lon.de>
+MAINTAINER deegree TMC <tmc@deegree.org>
 
-EXPOSE 8080
-
-ENV DEEGREE_VERSION 3.3.14
-
-# add user
-RUN sudo useradd -d /home/deegree -m deegree -p deegree
-RUN sudo su deegree
-
-# download tomcat
-RUN wget http://mirror.netcologne.de/apache.org/tomcat/tomcat-8/v8.0.20/bin/apache-tomcat-8.0.20.zip -O /home/deegree/apache-tomcat-8.0.20.zip
-RUN unzip /home/deegree/apache-tomcat-8.0.20.zip -d /home/deegree/
-RUN sudo chmod 777 /home/deegree/apache-tomcat-8.0.20/bin/catalina.sh
+# set deegree version
+ENV DEEGREE_VERSION 3.3.18
 
 # download deegree 
-RUN wget http://repo.deegree.org/content/repositories/public/org/deegree/deegree-webservices/${DEEGREE_VERSION}/deegree-webservices-${DEEGREE_VERSION}.war -O /home/deegree/apache-tomcat-8.0.20/deegree-webservices.war
+RUN wget http://repo.deegree.org/content/repositories/public/org/deegree/deegree-webservices/${DEEGREE_VERSION}/deegree-webservices-${DEEGREE_VERSION}.war -O /usr/local/tomcat/webapps/deegree-webservices.war
 
-
-CMD /home/deegree/apache-tomcat-8.0.20/bin/catalina.sh run
+# run tomcat
+CMD ["catalina.sh", "run"]
 
