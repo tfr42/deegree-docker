@@ -17,9 +17,9 @@ download the dockerfile into a directory an run:
 Access
 ------
 open http://localhost:8080/deegree-webservices
-when running docker on OS X or Windows with boot2docker then check the IP with
+when running docker on OS X or Windows with docker-machine then check the IP with
 
-    % boot2docker ip
+    % docker-machine ip <DOCKER_VM_NAME>
 
 and run:
 
