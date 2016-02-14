@@ -1,31 +1,32 @@
 deegree docker containers
 =========================
 
-This projects contains different Docker containers for deegree webservices. Please consult the [deegree documentation](http://www.deegree.org/Documentation)
-for further information how to configure and use deegree web services. The [Docker web site](https://www.docker.com/)
-provides all information about Docker!
+This projects contains different ```Dockerfile```s for building Docker images containing ready to use deegree webservices. 
+Please consult the [deegree documentation](http://www.deegree.org/Documentation) for further information how to 
+configure and use deegree webservices. The [Docker web site](https://www.docker.com/) provides all information 
+about Docker!
 
 
 Run deegree with PostgreSQL 9.4/PostGIS 2.1
 --------------------------------------------
 
-Get docker image for PostgreSQL DB and start the container:
+Get the Docker image for PostgreSQL and start the container with:
 
     % docker pull mdillon/postgis
-    % docker run -p 5432:5432 --name postgis -d mdillon/postgis
+    % docker run --name postgis -p 5432:5432 -d mdillon/postgis
 
 see https://hub.docker.com/r/mdillon/postgis/ for more information.
 
 
-Then start the container with deegree. Either use the [bundled Tomcat container](./deegree-builtin-tomcat) with:
+Then start the container with deegree. Either use the ```Dockerfile``` for the [bundled Tomcat container](./deegree-builtin-tomcat) to build the Docker image and then run:
 
-    % docker run --name deegree --link db:db -p 8080:8080 -d deegree/deegree
+    % docker run --name deegree -p 8080:8080 --link postgis:db -d deegree/deegree
 
-Or use the [deegree WAR on Tomcat 8](./deegree-webapp-tomcat) with:
+Or use the ```Dockerfile``` for the [deegree WAR on Tomcat 8](./deegree-webapp-tomcat) to build the Docker image and start the container with:
 
-    % docker run --name deegree --link postgis:db -p 8080:8080 -d deegree/deegree-tomcat
+    % docker run --name deegree -p 8080:8080 --link postgis:db -d deegree/deegree-tomcat
     
-To configure a JDBC connection connect to the [deegree console](http://localhost:8080/deegree-webservices) and enter the JDBC URL:
+To configure a JDBC connection for deegree use the [deegree console](http://localhost:8080/deegree-webservices) and create a JDBC connection for PostgreSQL:
 
 ```
 <?xml version='1.0' encoding='UTF-8'?>
@@ -41,23 +42,23 @@ To configure a JDBC connection connect to the [deegree console](http://localhost
 Run deegree with Oracle DB 11g/12c and Oracle WebLogic Server 12c
 -----------------------------------------------------------------
 
-To run Oracle DB 11g on Docker follow:
+To run Oracle DB 11g inside a Docker container follow:
 https://github.com/wnameless/docker-oracle-xe-11g
     
     % docker pull wnameless/oracle-xe-11g
-    % docker run -p 49160:22 -p 49161:1521 --name oracle11g -d wnameless/oracle-xe-11g
+    % docker run --name oracle11g -p 49160:22 -p 49161:1521 -d wnameless/oracle-xe-11g
 
-To run Oracle DB 12c on Docker follow:
+To run Oracle DB 12c inside a Docker container follow:
 https://github.com/wscherphof/oracle-12c
 
     % docker run --privileged --name oracle12g -d wscherphof/oracle-12c
 
-To run Oracle WLS 12c (12.1 or 12.2) on Docker follow:
+To run Oracle WLS 12c (12.1 or 12.2) inside a Docker container follow:
 https://github.com/oracle/docker/tree/master/OracleWebLogic
 
-    % docker run -p 7001:7001 --name wlsadmin -d 1221-domain
+    % docker run --name wlsadmin -p 7001:7001 -d 1221-domain
     
-To configure a JDBC connection connect to the [deegree console](http://localhost:7001/deegree-webservices) and enter the JDBC URL: 
+To configure a JDBC connection for deegree use the [deegree console](http://localhost:7001/deegree-webservices) and create a JDBC connection for Oracle: 
 
 ```
 <JDBCConnection xmlns="http://www.deegree.org/jdbc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" configVersion="3.0.0" xsi:schemaLocation="http://www.deegree.org/jdbc http://schemas.deegree.org/jdbc/3.0.0/jdbc.xsd">
@@ -74,18 +75,19 @@ deegree on Tomcat HOWTOs
 How to add Oracle JDBC driver to Apache Tomcat
 ----------------------------------------------
 
-First download the Oracle JDBC driver from [Oracle Tech Net](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html)
-Then copy the JAR file into the $CATALINA_HOME/lib directory inside the docker container:
+First download the Oracle JDBC driver from [Oracle Tech Net](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html).
+Then copy the Oracle JDBC driver JAR file into the $CATALINA_HOME/lib directory inside the Docker container:
 
-    % docker cp PATH_TO/ojdbc7.jar deegree:/usr/local/tomcat/lib
+    % docker cp PATH_TO/ojdbc7.jar deegree-tomcat:/usr/local/tomcat/lib
 
-Before configuring a JDBC connection to the Oracle DB you need to restart the docker container:
+Before configuring a JDBC connection for Oracle you need to restart the Docker container with:
 
-    % docker restart deegree
+    % docker restart deegree-tomcat
     
 How to pass CATALINA_OPTS to Apache Tomcat
 ------------------------------------------
-Here an example how to fix issue with Oracle JDBC when running in 'ORA-01882: timezone region not found':
+
+This is an example how to fix the issue with Oracle JDBC when running into the error *ORA-01882: timezone region not found*:
  
     % docker run --env CATALINA_OPTS="-Doracle.jdbc.timezoneAsRegion=false -Duser.timezone=CET" -d deegree/deegree-tomcat
     
