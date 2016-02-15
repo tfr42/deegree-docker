@@ -1,7 +1,10 @@
-deegree docker containers
-=========================
+deegree webservices on Docker
+=============================
 
-This projects contains different ```Dockerfile```s for building Docker images containing ready to use deegree webservices. 
+This projects contains sample ```Dockerfile```s for building Docker images containing ready to use deegree webservices.
+This includes quick start ```Dockerfile```s and samples to facilitate installation, configuration, and environment setup 
+of deegree webservices runnin on different Java EE application servers and using different database systems for data storage.
+ 
 Please consult the [deegree documentation](http://www.deegree.org/Documentation) for further information how to 
 configure and use deegree webservices. The [Docker web site](https://www.docker.com/) provides all information 
 about Docker!
@@ -95,3 +98,12 @@ This is an example how to fix the issue with Oracle JDBC when running into the e
 deegree on Oracle Weblogic HOWTOs
 =================================
 TBD
+
+Use Docker Compose to run the Docker application
+================================================
+
+Use the sample Docker Compose file ```docker-compose.yml``` to run the multi-container Docker application:
+
+    % docker-compose up web -d
+
+Starts the container ```deegree-webapp-tomcat``` with ```postgis```.

@@ -1,7 +1,7 @@
 deegree/Tomcat bundle docker container
 ======================================
 
-Latest deegree webservice on docker using deegree/Tomcat bundle from the deegree.org website.
+Latest deegree webservice on docker using the pre-built deegree/Tomcat bundle from the deegree.org website.
 
 Usage
 -----

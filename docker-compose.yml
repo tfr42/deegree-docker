@@ -1,0 +1,19 @@
+version: '2'
+services:
+  web:
+    build:
+      context: deegree-webapp-tomcat
+    depends_on:
+      - db
+    links:
+      - db
+    volumes:
+      - ~/.deegree:/home/root/.deegree
+    ports:
+      - 8080:8080
+  db:
+    image: mdillon/postgis
+    volumes:
+      - ./data:/var/lib/postgres/data
+    ports:
+      - 5432:5432
