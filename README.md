@@ -3,7 +3,7 @@ deegree webservices on Docker
 
 This projects contains sample ```Dockerfile```s for building Docker images containing ready to use deegree webservices.
 This includes quick start ```Dockerfile```s and samples to facilitate installation, configuration, and environment setup 
-of deegree webservices runnin on different Java EE application servers and using different database systems for data storage.
+of deegree webservices running on different Java EE application servers and using different database systems for data storage.
  
 Please consult the [deegree documentation](http://www.deegree.org/Documentation) for further information how to 
 configure and use deegree webservices. The [Docker web site](https://www.docker.com/) provides all information 
@@ -13,7 +13,7 @@ about Docker!
 Run deegree with PostgreSQL 9.4/PostGIS 2.1
 --------------------------------------------
 
-Get the Docker image for PostgreSQL and start the container with:
+Get the Docker image for PostgreSQL 9.4 with PostGIS 2.1 extension installed and start the container with:
 
     % docker pull mdillon/postgis
     % docker run --name postgis -p 5432:5432 -d mdillon/postgis
@@ -104,6 +104,6 @@ Use Docker Compose to run the Docker application
 
 Use the sample Docker Compose file ```docker-compose.yml``` to run the multi-container Docker application:
 
-    % docker-compose up web -d
+    % docker-compose up -d web 
 
 Starts the container ```deegree-webapp-tomcat``` with ```postgis```.

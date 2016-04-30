@@ -27,3 +27,9 @@ docker-machine ip <DOCKER_VM_NAME>
 ```
 and run
 open http://$IP:8080/
+
+Security Advise
+---------------
+This Dockerfile uses the bundled Apache Tomcat with deegree webservices. This Apache Tomcat may be outdated! 
+For deegree 3.3 this bundle is based on Apache Tomcat/6.0.29. 
+
