@@ -1,7 +1,7 @@
 deegree on Tomcat docker container
 ==================================
 
-Latest deegree webservice on docker using Apache Tomcat 8 on Java SE 7 with deegree WAR from the deegree.org website.
+Latest deegree webservice on docker using Apache Tomcat 8.5 on Java SE 8 with deegree WAR from the deegree.org website.
 
 Usage
 -----
