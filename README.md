@@ -1,4 +1,4 @@
-deegree webservices on Docker
+deegree Webservices on Docker
 =============================
 
 This projects contains sample ```Dockerfile```s for building Docker images containing ready to use deegree webservices.
@@ -10,10 +10,10 @@ configure and use deegree webservices. The [Docker web site](https://www.docker.
 about Docker!
 
 
-Run deegree with PostgreSQL 9.4/PostGIS 2.1
+Run deegree with PostgreSQL 9.4/PostGIS 2.2
 --------------------------------------------
 
-Get the Docker image for PostgreSQL 9.4 with PostGIS 2.1 extension installed and start the container with:
+Get the Docker image for PostgreSQL 9.4 with PostGIS 2.2 extension installed and start the container with:
 
     % docker pull mdillon/postgis
     % docker run --name postgis -p 5432:5432 -d mdillon/postgis
@@ -107,3 +107,7 @@ Use the sample Docker Compose file ```docker-compose.yml``` to run the multi-con
     % docker-compose up -d deegree 
 
 Starts the container ```deegree-webapp-tomcat``` with ```postgis```.
+
+Build status
+============
+[![CircleCI](https://circleci.com/gh/tfr42/deegree-docker/tree/master.svg?style=svg)](https://circleci.com/gh/tfr42/deegree-docker/tree/master)
