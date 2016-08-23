@@ -32,4 +32,5 @@ Security Advise
 ---------------
 This Dockerfile uses the bundled Apache Tomcat with deegree webservices. This Apache Tomcat may be outdated! 
 For deegree 3.3 this bundle is based on Apache Tomcat/6.0.29. 
+We do recommend to use the plain deegree web application.
 
