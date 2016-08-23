@@ -17,3 +17,11 @@ services:
       - ./data:/var/lib/postgres/data
     ports:
       - 5432:5432
+  pgadmin:
+    image: fenglc/pgadmin4
+    links:
+          - db
+    depends_on:
+          - db
+    ports:
+      - 5050:5050
