@@ -9,7 +9,7 @@ dependencies:
 
 test:
   pre:
-    - docker run -d --name postgis -p 5432:5432 mdillon/postgis
+    - docker run -d --name postgis mdillon/postgis
   post:
     - docker run -d --name deegree -p 8080:8080 --link postgis:db deegree/deegree:$CIRCLE_SHA1; sleep 15
     - curl --retry 10 --retry-delay 5 -v http://localhost:8080/deegree-webservices
