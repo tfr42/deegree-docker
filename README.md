@@ -104,6 +104,6 @@ Use Docker Compose to run the Docker application
 
 Use the sample Docker Compose file ```docker-compose.yml``` to run the multi-container Docker application:
 
-    % docker-compose up -d web 
+    % docker-compose up -d deegree 
 
 Starts the container ```deegree-webapp-tomcat``` with ```postgis```.
