@@ -9,8 +9,12 @@ Please consult the [deegree documentation](http://www.deegree.org/Documentation)
 configure and use deegree webservices. The [Docker web site](https://www.docker.com/) provides all information 
 about Docker!
 
+Docker images on Docker hub
+---------------------------
+https://hub.docker.com/r/tfr42/deegree/
 
-Run deegree with PostgreSQL 9.4/PostGIS 2.2
+
+How to run deegree with PostgreSQL 9.4/PostGIS 2.2
 --------------------------------------------
 
 Get the Docker image for PostgreSQL 9.4 with PostGIS 2.2 extension installed and start the container with:
@@ -41,8 +45,7 @@ To configure a JDBC connection for deegree use the [deegree console](http://loca
 </JDBCConnection>
 ```
 
-
-Run deegree with Oracle DB 11g/12c and Oracle WebLogic Server 12c
+How to run deegree with Oracle DB 11g/12c and Oracle WebLogic Server 12c
 -----------------------------------------------------------------
 
 To run Oracle DB 11g inside a Docker container follow:
@@ -107,6 +110,11 @@ Use the sample Docker Compose file ```docker-compose.yml``` to run the multi-con
     % docker-compose up -d deegree 
 
 Starts the container ```deegree-webapp-tomcat``` with ```postgis```.
+
+How to configure a deegree WFS
+==============================
+
+Check out the tutorial script posted on the branch "[foss4g2016_workshop](https://github.com/tfr42/deegree-docker/tree/foss4g2016_workshop)".
 
 Build status
 ============
