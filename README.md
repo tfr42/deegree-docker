@@ -13,6 +13,8 @@ Docker images on Docker hub
 ---------------------------
 https://hub.docker.com/r/tfr42/deegree/
 
+[![](https://images.microbadger.com/badges/version/tfr42/deegree.svg)](http://microbadger.com/images/tfr42/deegree "Get your own version badge on microbadger.com")
+
 
 How to run deegree with PostgreSQL 9.4/PostGIS 2.2
 --------------------------------------------
