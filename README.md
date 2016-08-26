@@ -11,7 +11,7 @@ Tutorial script
 Slides
 ------
 - [01_T_Introduction.pdf](./01_T_Introduction.pdf)
-- [02_T_INSPIRE-Download-Services.pdf](./02_T_INSPIRE-Download-Services.pdf(
+- [02_T_INSPIRE-Download-Services.pdf](./02_T_INSPIRE-Download-Services.pdf)
 - [03_TP_Docker.pdf](./03_TP_Docker.pdf)
 - [04_P_deegree-on-Docker.pdf](./04_P_deegree-on-Docker.pdf)
 - [05_TP_deegree.pdf](./05_TP_deegree.pdf)
