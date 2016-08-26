@@ -5,7 +5,7 @@ This branch contains the tutorial and slides used during the workshop „
 [WS13 - Running INSPIRE Download Services on Docker with deegree and PostgreSQL] (http://2016.foss4g.org/ws13.html).
 
 Tutorial script
-—--------------
+---------------
 [FOSS4G2016_deegreeonDockerWorkshop_WS13.pdf](./FOSS4G2016_deegreeonDockerWorkshop_WS13.pdf)
 
 Slides
