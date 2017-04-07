@@ -1,8 +1,7 @@
 deegree Webservices on Docker tutorial
 ======================================
 
-This branch contains the tutorial and slides used during the workshop „
-[WS13 - Running INSPIRE Download Services on Docker with deegree and PostgreSQL] (http://2016.foss4g.org/ws13.html).
+This branch contains the tutorial and slides used during the workshop [WS13 - Running INSPIRE Download Services on Docker with deegree and PostgreSQL](http://2016.foss4g.org/ws13.html).
 
 Tutorial script
 ---------------
