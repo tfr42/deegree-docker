@@ -1,4 +1,4 @@
-FROM tomcat:8.5-jre8
+FROM tomcat:9-jre8-alpine
 
 MAINTAINER deegree TMC <tmc@deegree.org>
 
