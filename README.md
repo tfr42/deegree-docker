@@ -1,5 +1,4 @@
-deegree webservices on Docker
-=============================
+# deegree webservices on Docker
 
 This projects contains sample ```Dockerfile```s for building Docker images containing ready-to-use deegree webservices.
 This includes quick start ```Dockerfile```s and samples to facilitate installation, configuration, and environment setup 
@@ -9,15 +8,14 @@ Please consult the [deegree documentation](http://www.deegree.org/Documentation)
 configure and use deegree webservices. The [Docker web site](https://www.docker.com/) provides all information 
 about Docker.
 
-Docker images on Docker hub
----------------------------
+## Docker images on Docker hub
+
 https://hub.docker.com/r/tfr42/deegree/
 
 [![](https://images.microbadger.com/badges/version/tfr42/deegree.svg)](http://microbadger.com/images/tfr42/deegree "Get your own version badge on microbadger.com")
 
 
-How to run deegree with PostgreSQL 9.4+/PostGIS 2.2+
-----------------------------------------------------
+# How to run deegree with PostgreSQL 9.4+/PostGIS 2.2+
 
 Get the Docker image for PostgreSQL with PostGIS extension installed and start the container with:
 
@@ -43,8 +41,9 @@ To configure a JDBC connection for deegree use the [deegree console](http://loca
 </JDBCConnection>
 ```
 
-How to run deegree with Oracle DB 11g/12c and Oracle WebLogic Server 12c
-------------------------------------------------------------------------
+# How to run deegree with Oracle DB 11g/12c and Oracle WebLogic Server 12c
+
+## Oracle XE 11g
 
 To run Oracle DB 11g inside a Docker container follow:
 https://github.com/wnameless/docker-oracle-xe-11g
@@ -52,12 +51,16 @@ https://github.com/wnameless/docker-oracle-xe-11g
     % docker pull wnameless/oracle-xe-11g
     % docker run --name oracle11g -p 49160:22 -p 49161:1521 -d wnameless/oracle-xe-11g
 
+## Oracle 12c
+
 To run Oracle DB 12c inside a Docker container follow:
 https://github.com/wscherphof/oracle-12c
 
     % docker run --name oracle12g -p 49161:1521 --privileged -d wscherphof/oracle-12c
     
 To build a Docker image with the latest Oracle DB version follow the official description on https://github.com/oracle/docker-images/tree/master/OracleDatabase
+
+## Oracle WebLogic Server 12c
 
 To run Oracle WLS 12c (12.1 or 12.2) inside a Docker container follow:
 https://github.com/oracle/docker/tree/master/OracleWebLogic
@@ -75,11 +78,9 @@ To configure a JDBC connection for deegree use the [deegree console](http://loca
 </JDBCConnection>
 ```
 
-deegree on Tomcat HOWTOs
-========================
+# deegree on Tomcat HOWTOs
 
-How to add Oracle JDBC driver to Apache Tomcat
-----------------------------------------------
+## How to add Oracle JDBC driver to Apache Tomcat
 
 First download the Oracle JDBC driver from [Oracle Tech Net](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html).
 Then copy the Oracle JDBC driver JAR file into the $CATALINA_HOME/lib directory inside the Docker container:
@@ -90,20 +91,18 @@ Before configuring a JDBC connection for Oracle you need to restart the Docker c
 
     % docker restart deegree-tomcat
     
-How to pass CATALINA_OPTS to Apache Tomcat
-------------------------------------------
+## How to pass CATALINA_OPTS to Apache Tomcat
 
 This is an example how to fix the issue with Oracle JDBC when running into the error *ORA-01882: timezone region not found*:
  
     % docker run --env CATALINA_OPTS="-Doracle.jdbc.timezoneAsRegion=false -Duser.timezone=CET" -d deegree/deegree-tomcat
     
     
-deegree on Oracle Weblogic HOWTOs
-=================================
+# deegree on Oracle Weblogic HOWTOs
+
 TBD
 
-Use Docker Compose to run the Docker application
-================================================
+# Use Docker Compose to run the Docker application
 
 Use the sample Docker Compose file ```docker-compose.yml``` to run the multi-container Docker application:
 
@@ -111,11 +110,10 @@ Use the sample Docker Compose file ```docker-compose.yml``` to run the multi-con
 
 Starts the docker container ```deegree-webapp-tomcat``` and ```postgis```.
 
-How to configure a deegree WFS
-==============================
+# How to configure a deegree webservice
 
 Check out the tutorial script posted on the branch "[foss4g2016_workshop](https://github.com/tfr42/deegree-docker/tree/foss4g2016_workshop)".
 
-Build status
-============
+# Build status
+
 [![CircleCI](https://circleci.com/gh/tfr42/deegree-docker/tree/master.svg?style=svg)](https://circleci.com/gh/tfr42/deegree-docker/tree/master)
