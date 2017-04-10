@@ -1,3 +1,4 @@
+[![deegree-docker](http://dockeri.co/image/tfr42/deegree)](https://hub.docker.com/r/tfr42/deegree/)
 # deegree webservices on Docker
 
 This projects contains sample ```Dockerfile```s for building Docker images containing ready-to-use deegree webservices.
