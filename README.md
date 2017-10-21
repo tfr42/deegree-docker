@@ -44,7 +44,7 @@ To configure a JDBC connection for deegree use the [deegree console](http://loca
 
 # How to run deegree with Oracle DB 11g/12c and Oracle WebLogic Server 12c
 
-## Oracle XE 11g
+## Oracle XE 11g (inofficial)
 
 To run Oracle DB 11g inside a Docker container follow:
 https://github.com/wnameless/docker-oracle-xe-11g
@@ -54,12 +54,9 @@ https://github.com/wnameless/docker-oracle-xe-11g
 
 ## Oracle 12c
 
-To run Oracle DB 12c inside a Docker container follow:
-https://github.com/wscherphof/oracle-12c
+To run Oracle DB 12c inside a Docker container follow the official description on https://github.com/oracle/docker-images/tree/master/OracleDatabase:
 
-    % docker run --name oracle12g -p 49161:1521 --privileged -d wscherphof/oracle-12c
-    
-To build a Docker image with the latest Oracle DB version follow the official description on https://github.com/oracle/docker-images/tree/master/OracleDatabase
+    % docker run --name oracle12g -p 49161:1521 --privileged -d oracle/database:12.2.0.1-ee
 
 ## Oracle WebLogic Server 12c
 
@@ -113,7 +110,7 @@ Starts the docker container ```deegree-webapp-tomcat``` and ```postgis```.
 
 # How to configure a deegree webservice
 
-Check out the tutorial script posted on the branch "[foss4g2016_workshop](https://github.com/tfr42/deegree-docker/tree/foss4g2016_workshop)".
+Check out the tutorial script posted on the branch "[foss4g2016_workshop](https://github.com/tfr42/deegree-docker/tree/foss4g2016_workshop)". The latestes workshop resources how to setup INSPIRE Network Services with deegree are available at https://github.com/lat-lon/deegree-workshop
 
 # Build status
 
