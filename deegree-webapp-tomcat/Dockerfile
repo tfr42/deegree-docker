@@ -1,9 +1,9 @@
-FROM tomcat:9-jre8-alpine
+FROM tomcat:9.0-jre10-slim
 
 MAINTAINER deegree TMC <tmc@deegree.org>
 
 # set deegree version
-ENV DEEGREE_VERSION 3.4-RC3
+ENV DEEGREE_VERSION 3.4.3
 
 # download deegree 
 RUN wget http://repo.deegree.org/content/repositories/public/org/deegree/deegree-webservices/${DEEGREE_VERSION}/deegree-webservices-${DEEGREE_VERSION}.war -O /usr/local/tomcat/webapps/deegree-webservices.war
