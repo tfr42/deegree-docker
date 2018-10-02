@@ -1,4 +1,4 @@
-FROM tomcat:9.0-jre10-slim
+FROM tomcat:9.0-jre10
 
 MAINTAINER deegree TMC <tmc@deegree.org>
 
