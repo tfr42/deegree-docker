@@ -1,8 +1,7 @@
-version: '2'
+version: '3'
 services:
   deegree:
-    build:
-      context: deegree-webapp-tomcat
+    image: tfr42/deegree:latest
     depends_on:
       - db
     links:
