@@ -1,3 +1,5 @@
+
+# The permissions granted to the entire deegree web application
 grant  codeBase "file:${catalina.base}/webapps/deegree-webservices/-" {
 
     permission java.lang.RuntimePermission "accessClassInPackage.com.sun.xml.internal.bind.v2.runtime.reflect";
