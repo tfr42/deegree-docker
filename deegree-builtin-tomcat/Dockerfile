@@ -1,18 +1,19 @@
-FROM java:7
+FROM java:8
 
-MAINTAINER deegree TMC <tmc@deegree.org>
+MAINTAINER Torsten Friebe <tfr@sourceforge.net>
+
+# set deegree version
+ENV DEEGREE_VERSION 3.4.4
 
 EXPOSE 8080
 
-ENV DEEGREE_VERSION 3.3.18
-
-# download deegree
+# download deegree tomcat bundle
 RUN wget http://repo.deegree.org/content/repositories/public/org/deegree/deegree-webservices/${DEEGREE_VERSION}/deegree-webservices-${DEEGREE_VERSION}.zip -O /tmp/deegree.zip
 
 # unpack 
-RUN unzip /tmp/deegree.zip -d /opt/
-RUN ln -s /opt/deegree-webservices-${DEEGREE_VERSION}/ /opt/deegree
-RUN rm /tmp/deegree.zip
+RUN unzip /tmp/deegree.zip -d /opt/ && \
+    ln -s /opt/deegree-webservices-${DEEGREE_VERSION}/ /opt/deegree && \
+    rm /tmp/deegree.zip
 
 # run tomcat
-CMD /opt/deegree/bin/catalina.sh run
+CMD ["/opt/deegree/bin/catalina.sh", "run"]
