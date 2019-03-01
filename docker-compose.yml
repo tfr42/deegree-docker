@@ -7,20 +7,50 @@ services:
     links:
       - db
     volumes:
+      # adding the defaul DEEGREE_WORKSPACE_ROOT to the container
       - ~/.deegree:/root/.deegree
+      # using tomcat-users.xml from host
+      - ./tomcat/conf/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml:ro
+      # using manager.xml from host to allow access to Tomcat Manager web app
+      - ./tomcat/conf/manager-context.xml:/usr/local/tomcat/conf/Catalina/localhost/manager.xml:ro
+      #- ./tomcat/conf/host-manager-context.xml:/usr/local/tomcat/conf/Catalina/localhost/host-manager.xml:ro
+      # using policy file
+      - ./tomcat/conf/catalina.default.policy:/usr/local/tomcat/conf/catalina.policy:ro
+      # all Tomcat logs are written to the host's directory tomcat/logs
+      - ./tomcat/logs:/usr/local/tomcat/logs
     ports:
       - 8080:8080
+    environment:
+      - CONSOLE_PASSWORD=
+    #entrypoint:
+    #  - catalina.sh
+    #  - run
+    #  - -security
+    restart: always
+    networks:
+      - deegree
   db:
     image: mdillon/postgis
     volumes:
-      - ./data:/var/lib/postgres/data
+      - ./pgdata:/var/lib/postgres/data
     ports:
       - 5432:5432
+    restart: always
+    networks:
+      - deegree
   pgadmin:
-    image: fenglc/pgadmin4
+    image: dpage/pgadmin4
     links:
-          - db
+      - db
     depends_on:
-          - db
+      - db
     ports:
-      - 5050:5050
+      - 5080:80
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@localhost.com
+      - PGADMIN_DEFAULT_PASSWORD=Passw0rd!
+    networks:
+      - deegree
+networks:
+  deegree:
+    driver: bridge
