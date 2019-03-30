@@ -3,7 +3,7 @@ FROM tomcat:8.5-jre8
 MAINTAINER Torsten Friebe <tfr@sourceforge.net>
 
 # set deegree version
-ENV DEEGREE_VERSION 3.4.4
+ENV DEEGREE_VERSION 3.4.5
 
 EXPOSE 8080
 
