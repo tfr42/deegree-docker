@@ -5,7 +5,7 @@ This projects contains sample ```Dockerfile```s for building Docker images conta
 This includes quick start ```Dockerfile```s and samples to facilitate installation, configuration, and environment setup 
 of deegree webservices running on different Java EE application servers and using different database systems for data storage.
  
-Please consult the [deegree documentation](https://www.deegree.org/Documentation) for further information how to 
+Please consult the [deegree documentation](https://www.deegree.org/documentation) for further information how to 
 configure and use deegree webservices. The [Docker web site](https://www.docker.com/) provides all information 
 about Docker.
 
