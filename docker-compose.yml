@@ -9,6 +9,8 @@ services:
     volumes:
       # adding the defaul DEEGREE_WORKSPACE_ROOT to the container
       - ~/.deegree:/root/.deegree
+      # using server.xml from host
+      - ./tomcat/conf/server.xml:/usr/local/tomcat/conf/server.xml:ro
       # using tomcat-users.xml from host
       - ./tomcat/conf/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml:ro
       # using manager.xml from host to allow access to Tomcat Manager web app

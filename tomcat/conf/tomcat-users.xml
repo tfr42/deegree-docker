@@ -43,7 +43,7 @@
 -->
   <role rolename="manager-gui"/>
   <role rolename="deegree"/>
-  <user username="admin" password="tomcat8" roles="manager-gui"/>
-  <user username="deploy" password="t0mc8t" roles="manager-script"/>
-  <user username="deegree" password="deegree3" roles="deegree"/>
+  <user username="admin" password="29e250550fc082df3a3b3e417aa16a7092fe7575f844dc27d2d098d88b403a0f$1$1ef88c75d6633a366afd99257a1d8f88fd13afdecc807f895eb95d33e505681a" roles="manager-gui"/>
+  <user username="deploy" password="29e250550fc082df3a3b3e417aa16a7092fe7575f844dc27d2d098d88b403a0f$1$1ef88c75d6633a366afd99257a1d8f88fd13afdecc807f895eb95d33e505681a" roles="manager-script"/>
+  <user username="deegree" password="29e250550fc082df3a3b3e417aa16a7092fe7575f844dc27d2d098d88b403a0f$1$1ef88c75d6633a366afd99257a1d8f88fd13afdecc807f895eb95d33e505681a" roles="deegree"/>
 </tomcat-users>
