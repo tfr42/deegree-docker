@@ -16,7 +16,7 @@ https://hub.docker.com/r/tfr42/deegree/
 [![](https://images.microbadger.com/badges/version/tfr42/deegree.svg)](http://microbadger.com/images/tfr42/deegree "Get your own version badge on microbadger.com")
 
 
-# How to run deegree with PostgreSQL 9.4+/PostGIS 2.2+
+# How to run deegree with PostgreSQL 9.4+/PostGIS 2.3+
 
 Get the Docker image for PostgreSQL with PostGIS extension installed and start the container with:
 
@@ -80,7 +80,7 @@ To configure a JDBC connection for deegree use the [deegree console](http://loca
 
 ## How to add Oracle JDBC driver to Apache Tomcat
 
-First download the Oracle JDBC driver from [Oracle Tech Net](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html).
+First download the Oracle JDBC driver `ojdbc8.jar`, version 12.2.0.1 or higher from [Oracle Tech Net](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html).
 Then copy the Oracle JDBC driver JAR file into the $CATALINA_HOME/lib directory inside the Docker container:
 
     % docker cp PATH_TO/ojdbc8.jar deegree-tomcat:/usr/local/tomcat/lib
