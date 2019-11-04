@@ -50,7 +50,7 @@ To run Oracle DB 11g inside a Docker container follow:
 https://github.com/wnameless/docker-oracle-xe-11g
     
     % docker pull wnameless/oracle-xe-11g
-    % docker run --name oracle11g -p 49160:22 -p 49161:1521 -d wnameless/oracle-xe-11g
+    % docker run --name oracle11g -p 49160:22 -p 49161:1521 -d wnameless/oracle-xe-11g-r2
 
 ## Oracle 12c
 
