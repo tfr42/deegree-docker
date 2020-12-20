@@ -2,7 +2,7 @@
 #
 # This file is available under the following license:
 # under LGPL 2.1 (LICENSE.TXT) Copyright 2020 Torsten Friebe <tfr@users.sourceforge.net>
-FROM maven:3.6.3-jdk-11 as builder
+FROM maven:3.6.3-jdk-11 AS builder
 
 RUN apt-get update && apt-get -yq install git
 
@@ -19,7 +19,7 @@ RUN mkdir -p /build_deegree && \
     git checkout ${BRANCH} && \
     mvn ${MVN_OPTS} -P${PROFILES} install
 
-FROM tomcat:9.0-jdk11 as runner
+FROM tomcat:9.0-jdk11 AS runner
 
 LABEL maintainer="Torsten Friebe <tfr@users.sourceforge.net>"
 
