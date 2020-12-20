@@ -1,9 +1,9 @@
 FROM tomcat:8.5-jre8
 
-MAINTAINER Torsten Friebe <tfr@sourceforge.net>
+LABEL maintainer="Torsten Friebe <tfr@users.sourceforge.net>"
 
 # set deegree version
-ENV DEEGREE_VERSION 3.4.11
+ENV DEEGREE_VERSION 3.4.12
 
 EXPOSE 8080
 
