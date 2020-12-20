@@ -3,7 +3,7 @@ FROM tomcat:8.5-jre8
 LABEL maintainer="Torsten Friebe <tfr@users.sourceforge.net>"
 
 # set deegree version
-ENV DEEGREE_VERSION 3.4.12
+ENV DEEGREE_VERSION 3.4.14
 
 EXPOSE 8080
 
