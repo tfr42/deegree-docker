@@ -16,14 +16,14 @@ https://hub.docker.com/r/tfr42/deegree/
 [![](https://images.microbadger.com/badges/version/tfr42/deegree.svg)](http://microbadger.com/images/tfr42/deegree "Get your own version badge on microbadger.com")
 
 
-# How to run deegree with PostgreSQL 9.4+/PostGIS 2.3+
+# How to run deegree with PostgreSQL 9.5+/PostGIS 2.5+
 
 Get the Docker image for PostgreSQL with PostGIS extension installed and start the container with:
 
-    % docker pull mdillon/postgis
-    % docker run --name postgis -p 5432:5432 -d mdillon/postgis
+    % docker pull postgis/postgis
+    % docker run --name postgis -p 5432:5432 -d postgis/postgis
 
-see https://hub.docker.com/r/mdillon/postgis/ for more information.
+see https://hub.docker.com/r/postgis/postgis/ for more information.
 
 
 Then start the container with deegree. Build the Docker image using the ```Dockerfile``` for the [deegree WAR on Tomcat](./deegree-webapp-tomcat) and start the container with:

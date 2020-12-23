@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 services:
   deegree:
     image: tfr42/deegree:latest
@@ -7,7 +7,7 @@ services:
     links:
       - db
     volumes:
-      # adding the defaul DEEGREE_WORKSPACE_ROOT to the container
+      # adding the default DEEGREE_WORKSPACE_ROOT to the container
       - ~/.deegree:/root/.deegree
       # using server.xml from host
       - ./tomcat/conf/server.xml:/usr/local/tomcat/conf/server.xml:ro
@@ -32,11 +32,15 @@ services:
     networks:
       - deegree
   db:
-    image: mdillon/postgis
+    image: postgis/postgis
     volumes:
-      - ./pgdata:/var/lib/postgres/data
+      - ./pgdata:/var/lib/postgres/data:rw
     ports:
       - 5432:5432
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Passw0rd!
     restart: always
     networks:
       - deegree
