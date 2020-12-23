@@ -19,7 +19,7 @@ RUN mkdir -p /build_deegree && \
     git checkout ${BRANCH} && \
     mvn ${MVN_OPTS} -P${PROFILES} install
 
-FROM tomcat:9.0-jdk11 AS runner
+FROM tomcat:10.0-jdk15 AS runner
 
 LABEL maintainer="Torsten Friebe <tfr@users.sourceforge.net>"
 
