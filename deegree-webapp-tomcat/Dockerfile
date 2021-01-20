@@ -25,7 +25,7 @@ LABEL maintainer="Torsten Friebe <tfr@users.sourceforge.net>"
 
 ARG DEEGREE_VERSION=3.4.14-SNAPSHOT-jdk11
 ENV DEEGREE_WORKSPACE_ROOT /root/.deegree
-ENV CATALINA_OPTS="-Djavax.xml.transform.TransformerFactory=com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl"
+ENV CATALINA_OPTS="-Djavax.xml.transform.TransformerFactory=net.sf.saxon.TransformerFactoryImpl"
 
 WORKDIR /usr/local/tomcat/webapps/
 # copy deegree war file from builder
