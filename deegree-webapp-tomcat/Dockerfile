@@ -3,8 +3,8 @@ FROM tomcat:8.5-jdk8
 LABEL maintainer="Torsten Friebe <tfr@users.sourceforge.net>"
 
 # set deegree version
-ENV DEEGREE_VERSION 3.4.14
-ENV CATALINA_OPTS="-Djavax.xml.transform.TransformerFactory=com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl"
+ENV DEEGREE_VERSION=3.4.32
+ENV CATALINA_OPTS="-Djavax.xml.transform.TransformerFactory=net.sf.saxon.TransformerFactoryImpl"
 
 EXPOSE 8080
 
