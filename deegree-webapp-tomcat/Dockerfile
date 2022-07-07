@@ -2,13 +2,13 @@
 #
 # This file is available under the following license:
 # under LGPL 2.1 (LICENSE.TXT) Copyright 2020 Torsten Friebe <tfr@users.sourceforge.net>
-FROM maven:3.8.5-openjdk-11 AS builder
+FROM maven:3.8.6-openjdk-11 AS builder
 
 RUN apt-get update && apt-get -yq install git
 
 ARG REPO_URL=https://github.com/deegree/deegree3.git
-ARG BRANCH=master
-ARG TAG=3.4.29
+ARG BRANCH=3.4-main
+ARG TAG=3.4.32
 ARG PROFILES=integration-tests
 ARG MVN_OPTS=-Djava.awt.headless=true
 WORKDIR /build_deegree/deegree3/
@@ -23,7 +23,7 @@ FROM tomcat:9.0-jdk11 AS runner
 
 LABEL maintainer="Torsten Friebe <tfr@users.sourceforge.net>"
 
-ARG DEEGREE_VERSION=3.4.29-jdk11
+ARG DEEGREE_VERSION=3.4.32
 ENV DEEGREE_WORKSPACE_ROOT /root/.deegree
 ENV CATALINA_OPTS="-Djavax.xml.transform.TransformerFactory=net.sf.saxon.TransformerFactoryImpl"
 
