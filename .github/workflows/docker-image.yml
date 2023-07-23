@@ -8,15 +8,21 @@ on:
 
 jobs:
 
-  build:
-
+  build-3_3:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
+    - uses: docker/setup-buildx-action@v2
     - name: Build Docker image with deegree 3.3
       run: docker build . --file ./3.3/Dockerfile -t tfr42/deegree:3.3.21 -t tfr42/deegree:3.3
+  build-3_4:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
     - name: Build Docker image with deegree 3.4
       run: docker build . --file ./3.4/Dockerfile -t tfr42/deegree:3.4.33 -t tfr42/deegree:3.4
+  build-3_5:
+    runs-on: ubuntu-latest
+    steps:
     - name: Build Docker image with deegree 3.5
       run: docker build . --file ./3.5/Dockerfile -t tfr42/deegree:3.5.0 -t tfr42/deegree:3.5 -t tfr42/deegree:latest
