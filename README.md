@@ -64,4 +64,4 @@ Before configuring a JDBC connection to the Oracle DB you need to restart the do
 
 Here an example how to fix issue with Oracle JDBC when running in 'ORA-01882: timezone region not found':
  
-    % docker run --env CATALINA_OPTS="-Doracle.jdbc.timezoneAsRegion=false -Duser.timezone=CET" -d deegree/deegree-tomcat
+    % docker run --env CATALINA_OPTS="-Doracle.jdbc.timezoneAsRegion=false -Duser.timezone=CET" -d tfr42/deegree:latest
