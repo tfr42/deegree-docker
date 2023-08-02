@@ -13,12 +13,13 @@ ARG DEEGREE_VERSION=3.5.0
 ENV DEEGREE_WORKSPACE_ROOT=/root/.deegree
 ENV CATALINA_OPTS="-Djavax.xml.transform.TransformerFactory=net.sf.saxon.TransformerFactoryImpl -Dlog.dir=$CATALINA_HOME/logs"
 
-WORKDIR /usr/local/tomcat/webapps/
-EXPOSE 8080
 
+WORKDIR /usr/local/tomcat/webapps/
 # download deegree war file
-RUN curl https://repo.deegree.org/content/repositories/public/org/deegree/deegree-webservices/${DEEGREE_VERSION}/deegree-webservices-${DEEGREE_VERSION}.war -o /usr/local/tomcat/webapps/deegree-webservices.war
-RUN curl https://repo.deegree.org/content/repositories/public/org/deegree/deegree-webservices-handbook/${DEEGREE_VERSION}/deegree-webservices-handbook-${DEEGREE_VERSION}-html.zip -o /tmp/handbook.zip
-RUN unzip /tmp/handbook.zip -d /usr/local/tomcat/webapps/ROOT/
+RUN curl https://repo.deegree.org/content/repositories/public/org/deegree/deegree-webservices/${DEEGREE_VERSION}/deegree-webservices-${DEEGREE_VERSION}.war -o /usr/local/tomcat/webapps/deegree-webservices.war && \
+    curl https://repo.deegree.org/content/repositories/public/org/deegree/deegree-webservices-handbook/${DEEGREE_VERSION}/deegree-webservices-handbook-${DEEGREE_VERSION}-html.zip -o /tmp/handbook.zip && \
+    unzip /tmp/handbook.zip -d /usr/local/tomcat/webapps/ROOT/
+
+EXPOSE 8080
 # run tomcat
 CMD ["catalina.sh", "run"]

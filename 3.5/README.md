@@ -12,8 +12,8 @@ To build a docker image run:
 
 To run a container use:
 
-    % docker run -p 8080:8080 -d deegree/deegree:3.5.0
-    % docker run -d --name deegree35 -p 8082:8080 tfr42/deegree:3.5
+    % docker run -p 8080:8080 -d tfr42/deegree:3.5.0
+    % docker run --name deegree35 -p 8082:8080 -d tfr42/deegree:3.5
 
 ## Access
 
@@ -22,3 +22,7 @@ Enter the address into a browser: http://localhost:8080/deegree-webservices or r
     % open http://$IP:8080/deegree-webservices
 
 where $IP is the IP address of host.
+
+## Documentation
+
+The documentation is accessible at http://localhost:8082/deegree-webservices-handbook-3.5.0/index.html
