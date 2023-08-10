@@ -6,13 +6,13 @@ Latest deegree webservice from the deegree.org website using Apache Tomcat 9 wit
 
 To build a docker image run:
 
-    % docker build --rm --load -t tfr42/deegree:3.5.0  -t tfr42/deegree:3.5 -t tfr42/deegree:latest .
+    % docker build --rm --load -t tfr42/deegree:3.5.1  -t tfr42/deegree:3.5 -t tfr42/deegree:latest .
 
 ## Usage
 
 To run a container use:
 
-    % docker run -p 8080:8080 -d tfr42/deegree:3.5.0
+    % docker run -p 8080:8080 -d tfr42/deegree:3.5
     % docker run --name deegree35 -p 8082:8080 -d tfr42/deegree:3.5
 
 ## Access

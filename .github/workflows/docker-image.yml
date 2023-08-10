@@ -63,4 +63,4 @@ jobs:
         context: ./3.5
         platforms: linux/amd64,linux/arm64
         push: true
-        tags: tfr42/deegree:3.5.0,tfr42/deegree:3.5,tfr42/deegree:latest
+        tags: tfr42/deegree:3.5.1,tfr42/deegree:3.5,tfr42/deegree:latest
