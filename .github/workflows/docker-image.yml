@@ -79,7 +79,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: ./3.5
-          file: DockerfileJdk17
+          file: ./3.5/DockerfileJdk17
           platforms: linux/amd64,linux/arm64
           push: true
           tags: tfr42/deegree:3.5.2-jdk17-tomcat10,tfr42/deegree:3.5-jdk17-tomcat10,tfr42/deegree:3.5-jdk17
