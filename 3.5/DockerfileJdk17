@@ -1,0 +1,30 @@
+## tfr42/deegree:3.5-jdk17
+#
+# This file is available under the following license:
+# under LGPL 2.1 (LICENSE.TXT) Copyright 2020 Torsten Friebe <tfr@users.sourceforge.net>
+FROM maven:3.9.3-eclipse-temurin-17 AS builder
+
+RUN apt-get update && apt-get -yq install git openssl
+
+ARG REPO_URL=https://repo.deegree.org
+ARG DEEGREE_VERSION=3.5.2
+WORKDIR /build_deegree/
+RUN mkdir -p /build_deegree
+RUN cd /build_deegree
+RUN curl -o deegree-webservices-${DEEGREE_VERSION}.war $REPO_URL/content/repositories/public/org/deegree/deegree-webservices/${DEEGREE_VERSION}/deegree-webservices-${DEEGREE_VERSION}.war
+RUN curl -o jakartaee-migration-1.0.7-shaded.jar https://dlcdn.apache.org/tomcat/jakartaee-migration/v1.0.7/binaries/jakartaee-migration-1.0.7-shaded.jar
+RUN java -jar jakartaee-migration-1.0.7-shaded.jar $PWD/deegree-webservices-${DEEGREE_VERSION}.war $PWD/deegree-webservices.war
+
+FROM tomcat:10.1.12-jdk17 AS runner
+
+LABEL maintainer="Torsten Friebe <tfr@users.sourceforge.net>"
+
+ENV DEEGREE_WORKSPACE_ROOT=/root/.deegree
+ENV CATALINA_OPTS="-Djavax.xml.transform.TransformerFactory=net.sf.saxon.TransformerFactoryImpl -Dlog.dir=$CATALINA_HOME/logs"
+ENV JAVA_OPTS="--add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.desktop/javax.imageio.spi=ALL-UNNAMED --add-exports=java.desktop/com.sun.imageio.spi=ALL-UNNAMED --add-exports java.desktop/sun.swing=ALL-UNNAMED --add-exports java.desktop/sun.awt=ALL-UNNAMED"
+VOLUME $DEEGREE_WORKSPACE_ROOT
+WORKDIR /usr/local/tomcat/webapps/
+# copy deegree war file from builder
+COPY --from=builder /build_deegree/deegree-webservices.war /usr/local/tomcat/webapps/deegree-webservices.war
+# run tomcat
+CMD ["catalina.sh", "run"]
