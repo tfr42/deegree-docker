@@ -19,9 +19,9 @@ FROM tomcat:10.1.12-jdk17 AS runner
 
 LABEL maintainer="Torsten Friebe <tfr@users.sourceforge.net>"
 
-ENV DEEGREE_WORKSPACE_ROOT=/root/.deegree
 ENV CATALINA_OPTS="-Djavax.xml.transform.TransformerFactory=net.sf.saxon.TransformerFactoryImpl -Dlog.dir=$CATALINA_HOME/logs"
 ENV JAVA_OPTS="--add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.desktop/javax.imageio.spi=ALL-UNNAMED --add-exports=java.desktop/com.sun.imageio.spi=ALL-UNNAMED --add-exports java.desktop/sun.swing=ALL-UNNAMED --add-exports java.desktop/sun.awt=ALL-UNNAMED"
+ENV DEEGREE_WORKSPACE_ROOT=/root/.deegree
 VOLUME $DEEGREE_WORKSPACE_ROOT
 WORKDIR /usr/local/tomcat/webapps/
 # copy deegree war file from builder
