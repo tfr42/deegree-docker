@@ -8,12 +8,13 @@ RUN apt-get update && apt-get -yq install git openssl
 
 ARG REPO_URL=https://repo.deegree.org
 ARG DEEGREE_VERSION=3.5.6
+ARG TC_MIG_VERSION=1.0.8
 WORKDIR /build_deegree/
 RUN mkdir -p /build_deegree
 RUN cd /build_deegree
 RUN curl -o deegree-webservices-${DEEGREE_VERSION}.war $REPO_URL/content/repositories/public/org/deegree/deegree-webservices/${DEEGREE_VERSION}/deegree-webservices-${DEEGREE_VERSION}.war
-RUN curl -o jakartaee-migration-1.0.7-shaded.jar https://dlcdn.apache.org/tomcat/jakartaee-migration/v1.0.7/binaries/jakartaee-migration-1.0.7-shaded.jar
-RUN java -jar jakartaee-migration-1.0.7-shaded.jar $PWD/deegree-webservices-${DEEGREE_VERSION}.war $PWD/deegree-webservices.war
+RUN curl -o jakartaee-migration-${TC_MIG_VERSION}-shaded.jar https://dlcdn.apache.org/tomcat/jakartaee-migration/v${TC_MIG_VERSION}/binaries/jakartaee-migration-${TC_MIG_VERSION}-shaded.jar
+RUN java -jar jakartaee-migration-${TC_MIG_VERSION}-shaded.jar $PWD/deegree-webservices-${DEEGREE_VERSION}.war $PWD/deegree-webservices.war
 
 FROM tomcat:10.1-jdk17-temurin AS runner
 
