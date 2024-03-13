@@ -45,7 +45,7 @@ jobs:
         context: ./3.4
         platforms: linux/amd64,linux/arm64
         push: true
-        tags: tfr42/deegree:3.4.34,tfr42/deegree:3.4
+        tags: tfr42/deegree:3.4.35,tfr42/deegree:3.4
   build-3_5:
     runs-on: ubuntu-latest
     steps:
@@ -63,7 +63,7 @@ jobs:
         context: ./3.5
         platforms: linux/amd64,linux/arm64
         push: true
-        tags: tfr42/deegree:3.5.5,tfr42/deegree:3.5,tfr42/deegree:latest
+        tags: tfr42/deegree:3.5.6,tfr42/deegree:3.5,tfr42/deegree:latest
   build-3_5_jdk17:
     runs-on: ubuntu-latest
     steps:
@@ -82,4 +82,4 @@ jobs:
           file: ./3.5/DockerfileJdk17
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: tfr42/deegree:3.5.5-jdk17-tomcat10,tfr42/deegree:3.5-jdk17-tomcat10,tfr42/deegree:3.5-jdk17
+          tags: tfr42/deegree:3.5.6-jdk17-tomcat10,tfr42/deegree:3.5-jdk17-tomcat10,tfr42/deegree:3.5-jdk17

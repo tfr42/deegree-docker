@@ -9,7 +9,7 @@ RUN apt-get update && apt-get -yq install zip
 LABEL maintainer="Torsten Friebe <tfr@users.sourceforge.net>"
 
 # set deegree version
-ARG DEEGREE_VERSION=3.5.5
+ARG DEEGREE_VERSION=3.5.6
 ENV DEEGREE_WORKSPACE_ROOT=/root/.deegree
 ENV CATALINA_OPTS="-Djavax.xml.transform.TransformerFactory=net.sf.saxon.TransformerFactoryImpl -Dlog.dir=$CATALINA_HOME/logs"
 
