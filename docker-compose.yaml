@@ -1,0 +1,48 @@
+services:
+  deegree-3_3:
+    image: tfr42/deegree:3.3
+    depends_on:
+      - database
+    links:
+      - database
+    volumes:
+      - ${HOME}/.deegree:/root/.deegree:rw
+    ports:
+      - 8133:8080
+  deegree-3_4:
+    image: tfr42/deegree:3.4
+    depends_on:
+      - database
+    links:
+      - database
+    volumes:
+      - ${HOME}/.deegree:/root/.deegree:rw
+    ports:
+      - 8134:8080
+  deegree-3_5:
+    image: tfr42/deegree:3.5
+    depends_on:
+      - database
+    links:
+      - database
+    volumes:
+      - ${HOME}/.deegree:/root/.deegree:rw
+    ports:
+      - 8135:8080
+  deegree-3_6:
+    image: tfr42/deegree:3.6
+    depends_on:
+      - database
+    links:
+      - database
+    volumes:
+      - ${HOME}/.deegree:/root/.deegree:rw
+    ports:
+      - 8136:8080
+  database:
+    image: postgis/postgis:16-3.4
+    ports:
+      - 5438:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
