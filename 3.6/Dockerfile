@@ -21,7 +21,7 @@ ENV CATALINA_OPTS="-Djavax.xml.transform.TransformerFactory=net.sf.saxon.Transfo
 WORKDIR /usr/local/tomcat/webapps/
 # download deegree war file
 RUN curl https://repo.deegree.org/content/repositories/public/org/deegree/deegree-webservices/${DEEGREE_VERSION}/deegree-webservices-${DEEGREE_VERSION}.war -o /usr/local/tomcat/webapps/deegree-webservices.war
-RUN curl https://repo.deegree.org/content/repositories/public/org/deegree/deegree-webservices-handbook/${DEEGREE_VERSION}/deegree-webservices-handbook-${DEEGREE_VERSION}-html.zip -o /tmp/handbook.zip
+RUN curl https://repo.deegree.org/content/repositories/public/org/deegree/deegree-documentation/${DEEGREE_VERSION}/deegree-documentation-${DEEGREE_VERSION}-html.zip -o /tmp/handbook.zip
 RUN unzip /tmp/handbook.zip -d /usr/local/tomcat/webapps/ROOT/
 
 VOLUME $DEEGREE_WORKSPACE_ROOT
