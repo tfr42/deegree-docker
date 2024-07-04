@@ -17,19 +17,23 @@ ENV DEEGREE_API_KEY=
 ENV DEEGREE_CONSOLE_PW=
 ENV DEEGREE_WORKSPACE_ROOT=/root/.deegree
 ENV CATALINA_OPTS="-Djavax.xml.transform.TransformerFactory=net.sf.saxon.TransformerFactoryImpl -Dlog.dir=$CATALINA_HOME/logs"
+ENV JAVA_OPTS="--add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.desktop/com.sun.imageio.spi=ALL-UNNAMED --add-opens java.desktop/javax.imageio.spi=ALL-UNNAMED --add-exports java.desktop/sun.awt=ALL-UNNAMED --add-exports java.desktop/com.sun.imageio.spi=ALL-UNNAMED --add-exports java.desktop/sun.swing=ALL-UNNAMED --add-opens java.desktop/javax.imageio.spi=ALL-UNNAMED"
+ENV LANG en_US.UTF-8
 
 WORKDIR /usr/local/tomcat/webapps/
 # download deegree war file
 RUN curl https://repo.deegree.org/content/repositories/public/org/deegree/deegree-webservices/${DEEGREE_VERSION}/deegree-webservices-${DEEGREE_VERSION}.war -o /usr/local/tomcat/webapps/deegree-webservices.war
 RUN curl https://repo.deegree.org/content/repositories/public/org/deegree/deegree-documentation/${DEEGREE_VERSION}/deegree-documentation-${DEEGREE_VERSION}-html.zip -o /tmp/handbook.zip
-RUN unzip /tmp/handbook.zip -d /usr/local/tomcat/webapps/ROOT/
+ENV dest=/usr/local/tomcat/webapps/ROOT/
+RUN unzip -d "$dest" /tmp/handbook.zip
+RUN mv "$dest"/*/* "$dest"
+RUN rm /tmp/handbook.zip
 
 VOLUME $DEEGREE_WORKSPACE_ROOT
 WORKDIR $DEEGREE_WORKSPACE_ROOT
-# apply API key and console password
-RUN ([ -z "$DEEGREE_API_KEY" ] || (echo $DEEGREE_API_KEY > $DEEGREE_WORKSPACE_ROOT/config.apikey))
-RUN ([ -z "$DEEGREE_CONSOLE_PW" ] || (openssl passwd -5 $DEEGREE_CONSOLE_PW > $DEEGREE_WORKSPACE_ROOT/console.pw))
-
+# apply API key and console password "openssl dgst -sha256 <<< 'hello world'"
 EXPOSE 8080
-# run tomcat
-CMD ["catalina.sh", "run"]
+# apply apikey, password and run tomcat
+CMD ([ -z "$DEEGREE_API_KEY" ] || (echo $DEEGREE_API_KEY > $DEEGREE_WORKSPACE_ROOT/config.apikey)) \
+ && ([ -z "$DEEGREE_CONSOLE_PW" ] || (openssl passwd -5 $DEEGREE_CONSOLE_PW > $DEEGREE_WORKSPACE_ROOT/console.pw)) \
+ && /usr/local/tomcat/bin/catalina.sh run
