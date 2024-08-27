@@ -31,7 +31,7 @@ RUN rm /tmp/handbook.zip
 
 VOLUME $DEEGREE_WORKSPACE_ROOT
 WORKDIR $DEEGREE_WORKSPACE_ROOT
-# apply API key and console password "openssl dgst -sha256 <<< 'hello world'"
+# apply API key and console password
 EXPOSE 8080
 # apply apikey, password and run tomcat
 CMD ([ -z "$DEEGREE_API_KEY" ] || (echo $DEEGREE_API_KEY > $DEEGREE_WORKSPACE_ROOT/config.apikey)) \
