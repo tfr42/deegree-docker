@@ -22,7 +22,7 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Build and push v3.3
-      uses: docker/build-push-action@v5
+      uses: docker/build-push-action@v6
       with:
         context: ./3.3
         platforms: linux/amd64,linux/arm64
@@ -40,7 +40,7 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Build and push v3.4
-      uses: docker/build-push-action@v5
+      uses: docker/build-push-action@v6
       with:
         context: ./3.4
         platforms: linux/amd64,linux/arm64
@@ -58,12 +58,12 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Build and push v3.5
-      uses: docker/build-push-action@v5
+      uses: docker/build-push-action@v6
       with:
         context: ./3.5
         platforms: linux/amd64,linux/arm64
         push: true
-        tags: tfr42/deegree:3.5.8,tfr42/deegree:3.5,tfr42/deegree:latest
+        tags: tfr42/deegree:3.5.10,tfr42/deegree:3.5,tfr42/deegree:latest
   build-3_5_jdk17:
     runs-on: ubuntu-latest
     steps:
@@ -76,13 +76,13 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build and push v3.5 with JDK 17
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: ./3.5
           file: ./3.5/DockerfileJdk17
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: tfr42/deegree:3.5.8-jdk17-tomcat10,tfr42/deegree:3.5-jdk17-tomcat10,tfr42/deegree:3.5-jdk17
+          tags: tfr42/deegree:3.5.10-jdk17-tomcat10,tfr42/deegree:3.5-jdk17-tomcat10,tfr42/deegree:3.5-jdk17
   build-3_6:
     runs-on: ubuntu-latest
     steps:
@@ -95,7 +95,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build and push v3.6 with JDK 17
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: ./3.6
           file: ./3.6/Dockerfile
