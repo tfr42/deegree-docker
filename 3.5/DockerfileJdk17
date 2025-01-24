@@ -8,7 +8,7 @@ RUN apt-get update && apt-get -yq install git openssl
 
 ARG REPO_URL=https://repo.deegree.org
 ARG DEEGREE_VERSION=3.5.10
-ARG TC_MIG_VERSION=1.0.8
+ARG TC_MIG_VERSION=1.0.9
 WORKDIR /build_deegree/
 RUN mkdir -p /build_deegree
 RUN cd /build_deegree
