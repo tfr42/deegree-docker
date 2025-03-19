@@ -1,15 +1,15 @@
 # deegree docker containers
 
-This projects contains different Docker containers for deegree webservices. Please consult the [deegree documentation](http://www.deegree.org/Documentation)
+This projects contains different Docker containers for deegree webservices. Please consult the [deegree documentation](https://www.deegree.org/Documentation)
 for further information how to configure and use deegree web services. The [Docker web site](https://www.docker.com/)
 provides all information about Docker!
 
-## Run deegree with PostgreSQL 14/PostGIS 3.4
+## Run deegree with PostgreSQL 15/PostGIS 3.5
 
 Get docker image for PostgreSQL DB and start the container:
 
-    % docker pull postgis/postgis:14-3.4
-    % docker run -p 5432:5432 --name db -e POSTGRES_PASSWORD=secretpassword -d postgis/postgis:14-3.4
+    % docker pull postgis/postgis:15-3.5
+    % docker run -p 5432:5432 --name db -e POSTGRES_PASSWORD=secretpassword -d postgis/postgis:15-3.5
 
 see https://hub.docker.com/r/postgis/postgis/ for more information.
 
