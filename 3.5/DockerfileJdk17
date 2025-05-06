@@ -7,8 +7,9 @@ FROM maven:3.9-eclipse-temurin-17 AS builder
 RUN apt-get update && apt-get -yq install git openssl
 
 ARG REPO_URL=https://repo.deegree.org
-ARG DEEGREE_VERSION=3.5.10
+ARG DEEGREE_VERSION=3.5.12
 ARG TC_MIG_VERSION=1.0.9
+
 WORKDIR /build_deegree/
 RUN mkdir -p /build_deegree
 RUN cd /build_deegree
