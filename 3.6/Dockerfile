@@ -9,7 +9,7 @@ RUN apt-get update && apt-get -yq install zip
 LABEL maintainer="Torsten Friebe <tfr@users.sourceforge.net>"
 
 # set deegree version
-ARG DEEGREE_VERSION=3.6-RC1
+ARG DEEGREE_VERSION=3.6-RC2
 
 # API key to use; if empty API key will not change
 ENV DEEGREE_API_KEY=
@@ -18,7 +18,7 @@ ENV DEEGREE_CONSOLE_PW=
 ENV DEEGREE_WORKSPACE_ROOT=/root/.deegree
 ENV CATALINA_OPTS="-Djavax.xml.transform.TransformerFactory=net.sf.saxon.TransformerFactoryImpl -Dlog.dir=$CATALINA_HOME/logs"
 ENV JAVA_OPTS="--add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.desktop/com.sun.imageio.spi=ALL-UNNAMED --add-opens java.desktop/javax.imageio.spi=ALL-UNNAMED --add-exports java.desktop/sun.awt=ALL-UNNAMED --add-exports java.desktop/com.sun.imageio.spi=ALL-UNNAMED --add-exports java.desktop/sun.swing=ALL-UNNAMED --add-opens java.desktop/javax.imageio.spi=ALL-UNNAMED"
-ENV LANG en_US.UTF-8
+ENV LANG=en_US.UTF-8
 
 WORKDIR /usr/local/tomcat/webapps/
 # download deegree war file
