@@ -1,7 +1,7 @@
 # deegree docker containers
 
 This projects contains different Docker containers for deegree webservices. Please consult the [deegree documentation](https://www.deegree.org/Documentation)
-for further information how to configure and use deegree web services. The [Docker web site](https://www.docker.com/)
+for further information how to configure and use deegree web services. The [Docker website](https://www.docker.com/)
 provides all information about Docker!
 
 ## Run deegree with PostgreSQL 15/PostGIS 3.5
