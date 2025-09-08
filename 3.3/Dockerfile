@@ -1,3 +1,7 @@
+## tfr42/deegree:3.3
+#
+# This file is available under the following license:
+# under LGPL 2.1 (LICENSE.TXT) Copyright 2020 Torsten Friebe <tfr@users.sourceforge.net>
 FROM tomcat:8.5-jdk8
 
 MAINTAINER Torsten Friebe <tfr@sourceforge.net>

@@ -2,7 +2,7 @@
 #
 # This file is available under the following license:
 # under LGPL 2.1 (LICENSE.TXT) Copyright 2020 Torsten Friebe <tfr@users.sourceforge.net>
-FROM tomcat:10.1-jdk17-temurin
+FROM tomcat:11-jdk21-temurin
 
 RUN apt-get update && apt-get -yq install zip
 

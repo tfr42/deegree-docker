@@ -1,4 +1,4 @@
-## tfr42/deegree:3.5-jdk11
+## tfr42/deegree:3.4
 #
 # This file is available under the following license:
 # under LGPL 2.1 (LICENSE.TXT) Copyright 2020 Torsten Friebe <tfr@users.sourceforge.net>
