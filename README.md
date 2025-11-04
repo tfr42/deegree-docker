@@ -15,7 +15,7 @@ see https://hub.docker.com/r/postgis/postgis/ for more information.
 
 Then start the container with deegree webservices:
 
-    % docker run --name deegree --link postgis:db -p 8080:8080 -d tfr42/deegree:latest
+    % docker run --name deegree --link db:db -p 8080:8080 -d tfr42/deegree:latest
 
 ## Configure a database connection
 
