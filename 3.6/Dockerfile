@@ -9,7 +9,7 @@ RUN apt-get update && apt-get -yq install zip
 LABEL maintainer="Torsten Friebe <tfr@users.sourceforge.net>"
 
 # set deegree version
-ARG DEEGREE_VERSION=3.6.2
+ARG DEEGREE_VERSION=3.6.3
 
 # API key to use; if empty API key will not change
 ENV DEEGREE_API_KEY=

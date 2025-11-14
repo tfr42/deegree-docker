@@ -39,6 +39,9 @@ services:
       - ${HOME}/.deegree:/root/.deegree:rw
     ports:
       - 8136:8080
+    environment:
+      - DEEGREE_CONSOLE_PW=${PASSWORD:-secret}
+      - DEEGREE_API_KEY=${API_KEY:-secretKey}
   database:
     image: postgis/postgis:17-3.5
     ports:
