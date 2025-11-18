@@ -21,8 +21,10 @@ ENV JAVA_OPTS="--add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.desk
 ENV LANG=en_US.UTF-8
 
 WORKDIR /usr/local/tomcat/webapps/
-# download deegree war file
+# download deegree war files
 RUN curl https://repo.deegree.org/content/repositories/public/org/deegree/deegree-webservices/${DEEGREE_VERSION}/deegree-webservices-${DEEGREE_VERSION}.war -o /usr/local/tomcat/webapps/deegree-webservices.war
+RUN curl https://repo.deegree.org/content/repositories/public/org/deegree/deegree-webservices-basic/${DEEGREE_VERSION}/deegree-webservices-basic-${DEEGREE_VERSION}.war -o /usr/local/tomcat/webapps/deegree-webservices-basic.war
+RUN curl https://repo.deegree.org/content/repositories/public/org/deegree/deegree-webservices-minimal/${DEEGREE_VERSION}/deegree-webservices-minimal-${DEEGREE_VERSION}.war -o /usr/local/tomcat/webapps/deegree-webservices-minimal.war
 RUN curl https://repo.deegree.org/content/repositories/public/org/deegree/deegree-documentation/${DEEGREE_VERSION}/deegree-documentation-${DEEGREE_VERSION}-html.zip -o /tmp/handbook.zip
 ENV dest=/usr/local/tomcat/webapps/ROOT/
 RUN unzip -d "$dest" /tmp/handbook.zip
