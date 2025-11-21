@@ -19,6 +19,9 @@ RUN curl https://repo.deegree.org/content/repositories/public/org/deegree/deegre
     curl https://repo.deegree.org/content/repositories/public/org/deegree/deegree-webservices-handbook/${DEEGREE_VERSION}/deegree-webservices-handbook-${DEEGREE_VERSION}-html.zip -o /tmp/handbook.zip && \
     unzip /tmp/handbook.zip -d /usr/local/tomcat/webapps/ROOT/
 
+VOLUME $DEEGREE_WORKSPACE_ROOT
+WORKDIR $DEEGREE_WORKSPACE_ROOT
+
 EXPOSE 8080
 # run tomcat
 CMD ["catalina.sh", "run"]

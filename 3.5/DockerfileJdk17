@@ -21,11 +21,9 @@ FROM tomcat:10.1-jdk17-temurin AS runner
 
 LABEL maintainer="Torsten Friebe <tfr@users.sourceforge.net>"
 
-ENV CATALINA_OPTS="-Djavax.xml.transform.TransformerFactory=net.sf.saxon.TransformerFactoryImpl -Dlog.dir=$CATALINA_HOME/logs"
 ENV JAVA_OPTS="--add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.desktop/javax.imageio.spi=ALL-UNNAMED --add-exports=java.desktop/com.sun.imageio.spi=ALL-UNNAMED --add-exports java.desktop/sun.swing=ALL-UNNAMED --add-exports java.desktop/sun.awt=ALL-UNNAMED"
 ENV DEEGREE_WORKSPACE_ROOT=/root/.deegree
-# API key to use; if empty will not change API key
-ENV DEEGREE_API_KEY=
+ENV CATALINA_OPTS="-Djavax.xml.transform.TransformerFactory=net.sf.saxon.TransformerFactoryImpl -Dlog.dir=$CATALINA_HOME/logs"
 
 WORKDIR /usr/local/tomcat/webapps/
 # copy deegree war file from builder
@@ -33,8 +31,7 @@ COPY --from=builder /build_deegree/deegree-webservices.war /usr/local/tomcat/web
 
 VOLUME $DEEGREE_WORKSPACE_ROOT
 WORKDIR $DEEGREE_WORKSPACE_ROOT
-# apply API key and console password
-RUN ([ -z "$DEEGREE_API_KEY" ] || (echo $DEEGREE_API_KEY > $DEEGREE_WORKSPACE_ROOT/config.apikey))
 
+EXPOSE 8080
 # run tomcat
 CMD ["catalina.sh", "run"]
