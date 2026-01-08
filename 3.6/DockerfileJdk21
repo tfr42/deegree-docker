@@ -9,7 +9,7 @@ RUN apt-get update && apt-get -yq install zip
 LABEL maintainer="Torsten Friebe <tfr@users.sourceforge.net>"
 
 # set deegree version
-ARG DEEGREE_VERSION=3.6.4
+ARG DEEGREE_VERSION=3.6.5
 
 # API key to use; if empty API key will not change
 ENV DEEGREE_API_KEY=
@@ -31,7 +31,7 @@ RUN rm /tmp/handbook.zip
 
 VOLUME $DEEGREE_WORKSPACE_ROOT
 WORKDIR $DEEGREE_WORKSPACE_ROOT
-# apply API key and console password
+# tomcat port
 EXPOSE 8080
 # apply apikey, password and run tomcat
 CMD ([ -z "$DEEGREE_API_KEY" ] || (echo $DEEGREE_API_KEY > $DEEGREE_WORKSPACE_ROOT/config.apikey)) \

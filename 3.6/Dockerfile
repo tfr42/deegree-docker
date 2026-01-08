@@ -9,7 +9,7 @@ RUN apt-get update && apt-get -yq install zip
 LABEL maintainer="Torsten Friebe <tfr@users.sourceforge.net>"
 
 # set deegree version
-ARG DEEGREE_VERSION=3.6.4
+ARG DEEGREE_VERSION=3.6.5
 
 # API key to use; if empty API key will not change
 ENV DEEGREE_API_KEY=
@@ -22,9 +22,9 @@ ENV LANG=en_US.UTF-8
 
 WORKDIR /usr/local/tomcat/webapps/
 # download deegree war file
-RUN curl https://repo.deegree.org/content/repositories/public/org/deegree/deegree-webservices/${DEEGREE_VERSION}/deegree-webservices-${DEEGREE_VERSION}.war -o /usr/local/tomcat/webapps/deegree-webservices.war
 #RUN curl https://repo.deegree.org/content/repositories/public/org/deegree/deegree-webservices-basic/${DEEGREE_VERSION}/deegree-webservices-basic-${DEEGREE_VERSION}.war -o /usr/local/tomcat/webapps/deegree-webservices-basic.war
 #RUN curl https://repo.deegree.org/content/repositories/public/org/deegree/deegree-webservices-minimal/${DEEGREE_VERSION}/deegree-webservices-minimal-${DEEGREE_VERSION}.war -o /usr/local/tomcat/webapps/deegree-webservices-minimal.war
+RUN curl https://repo.deegree.org/content/repositories/public/org/deegree/deegree-webservices/${DEEGREE_VERSION}/deegree-webservices-${DEEGREE_VERSION}.war -o /usr/local/tomcat/webapps/deegree-webservices.war
 RUN curl https://repo.deegree.org/content/repositories/public/org/deegree/deegree-documentation/${DEEGREE_VERSION}/deegree-documentation-${DEEGREE_VERSION}-html.zip -o /tmp/handbook.zip
 ENV dest=/usr/local/tomcat/webapps/ROOT/
 RUN unzip -d "$dest" /tmp/handbook.zip
@@ -33,7 +33,7 @@ RUN rm /tmp/handbook.zip
 
 VOLUME $DEEGREE_WORKSPACE_ROOT
 WORKDIR $DEEGREE_WORKSPACE_ROOT
-# apply API key and console password
+# tomcat port
 EXPOSE 8080
 # apply apikey, password and run tomcat
 CMD ([ -z "$DEEGREE_API_KEY" ] || (echo $DEEGREE_API_KEY > $DEEGREE_WORKSPACE_ROOT/config.apikey)) \
