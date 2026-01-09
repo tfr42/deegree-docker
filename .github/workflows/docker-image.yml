@@ -119,4 +119,4 @@ jobs:
           file: ./3.6/DockerfileJdk21
           platforms: linux/amd64,linux/arm64,linux/arm64/v8
           push: true
-          tags: tfr42/deegree:3.6-jdk21,tfr42/deegree:3.6.4-jdk21,tfr42/deegree:3.6-jdk21-tomcat11
+          tags: tfr42/deegree:3.6-jdk21,tfr42/deegree:3.6.5-jdk21,tfr42/deegree:3.6-jdk21-tomcat11
