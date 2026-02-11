@@ -4,7 +4,7 @@
 # under LGPL 2.1 (LICENSE.TXT) Copyright 2020 Torsten Friebe <tfr@users.sourceforge.net>
 FROM tomcat:11-jdk25-temurin
 
-RUN apt-get update && apt-get -yq install zip
+RUN apt-get update && apt-get -yq install zip curl
 
 LABEL maintainer="Torsten Friebe <tfr@users.sourceforge.net>"
 
