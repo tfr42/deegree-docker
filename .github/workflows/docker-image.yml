@@ -100,7 +100,7 @@ jobs:
           file: ./3.6/Dockerfile
           platforms: linux/amd64,linux/arm64,linux/arm64/v8
           push: true
-          tags: tfr42/deegree:3.6.6,tfr42/deegree:3.6,tfr42/deegree:3.6-jdk17-tomcat10,tfr42/deegree:3.6-jdk17,tfr42/deegree:latest
+          tags: tfr42/deegree:3.6.7,tfr42/deegree:3.6,tfr42/deegree:3.6-jdk17-tomcat10,tfr42/deegree:3.6-jdk17,tfr42/deegree:latest
   build-3_6_jdk21:
     runs-on: ubuntu-latest
     steps:
@@ -119,7 +119,7 @@ jobs:
           file: ./3.6/DockerfileJdk21
           platforms: linux/amd64,linux/arm64,linux/arm64/v8
           push: true
-          tags: tfr42/deegree:3.6.6-jdk21,tfr42/deegree:3.6-jdk21,tfr42/deegree:3.6-jdk21-tomcat11
+          tags: tfr42/deegree:3.6.7-jdk21,tfr42/deegree:3.6-jdk21,tfr42/deegree:3.6-jdk21-tomcat11
   build-3_6_jdk25:
     runs-on: ubuntu-latest
     steps:
@@ -138,4 +138,4 @@ jobs:
           file: ./3.6/DockerfileJdk25
           platforms: linux/amd64,linux/arm64,linux/arm64/v8
           push: true
-          tags: tfr42/deegree:3.6.6-jdk25,tfr42/deegree:3.6-jdk25,tfr42/deegree:3.6-jdk25-tomcat11
+          tags: tfr42/deegree:3.6.7-jdk25,tfr42/deegree:3.6-jdk25,tfr42/deegree:3.6-jdk25-tomcat11
