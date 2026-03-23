@@ -1,8 +1,12 @@
 # deegree docker containers
 
-This projects contains different Docker containers for deegree webservices. Please consult the [deegree documentation](https://www.deegree.org/Documentation)
+This projects contains different [container images for deegree webservices](https://hub.docker.com/r/tfr42/deegree), starting from version 3.3 to the current version 3.6. It's main purpose is to test und compare the behaviour of the different versions. To use deegree webservices for production environments use the official container images [here](https://github.com/deegree/deegree3-docker). Please consult the [deegree documentation](https://www.deegree.org/documentation)
 for further information how to configure and use deegree webservices. The [Docker website](https://www.docker.com/)
 provides all information about Docker!
+
+## Official deegree container images
+
+The OSGeo project deegree publishes it's container images here: https://hub.docker.com/r/deegree/deegree3-docker/
 
 ## Run deegree with PostgreSQL 15/PostGIS 3.5
 
