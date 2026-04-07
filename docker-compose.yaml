@@ -2,9 +2,10 @@ services:
   deegree-3_3:
     image: tfr42/deegree:3.3
     depends_on:
-      - database
+      - pg_db
     links:
-      - database
+      - pg_db
+      - mssql_db
     volumes:
       - ${HOME}/.deegree:/root/.deegree:rw
     ports:
@@ -12,9 +13,10 @@ services:
   deegree-3_4:
     image: tfr42/deegree:3.4
     depends_on:
-      - database
+      - pg_db
     links:
-      - database
+      - pg_db
+      - mssql_db
     volumes:
       - ${HOME}/.deegree:/root/.deegree:rw
     ports:
@@ -22,9 +24,10 @@ services:
   deegree-3_5:
     image: tfr42/deegree:3.5
     depends_on:
-      - database
+      - pg_db
     links:
-      - database
+      - pg_db
+      - mssql_db
     volumes:
       - ${HOME}/.deegree:/root/.deegree:rw
     ports:
@@ -32,9 +35,10 @@ services:
   deegree-3_6:
     image: tfr42/deegree:3.6
     depends_on:
-      - database
+      - pg_db
     links:
-      - database
+      - pg_db
+      - mssql_db
     volumes:
       - ${HOME}/.deegree:/root/.deegree:rw
     ports:
@@ -42,8 +46,9 @@ services:
     environment:
       - DEEGREE_CONSOLE_PW=${PASSWORD:-secret}
       - DEEGREE_API_KEY=${API_KEY:-secretKey}
-  database:
+  pg_db:
     image: postgis/postgis:17-3.5
+    platform: linux/amd64
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -h localhost -p 5432 -U postgres -d postgres" ]
       interval: 5s
@@ -53,3 +58,12 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+  mssql_db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    platform: linux/amd64
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Pass_w0rd
+      - MSSQL_PID=Developer
