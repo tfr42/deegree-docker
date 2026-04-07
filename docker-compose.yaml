@@ -8,7 +8,7 @@ services:
     volumes:
       - ${HOME}/.deegree:/root/.deegree:rw
     ports:
-      - 8133:8080
+      - "8133:8080"
   deegree-3_4:
     image: tfr42/deegree:3.4
     depends_on:
@@ -18,7 +18,7 @@ services:
     volumes:
       - ${HOME}/.deegree:/root/.deegree:rw
     ports:
-      - 8134:8080
+      - "8134:8080"
   deegree-3_5:
     image: tfr42/deegree:3.5
     depends_on:
@@ -28,7 +28,7 @@ services:
     volumes:
       - ${HOME}/.deegree:/root/.deegree:rw
     ports:
-      - 8135:8080
+      - "8135:8080"
   deegree-3_6:
     image: tfr42/deegree:3.6
     depends_on:
@@ -38,14 +38,18 @@ services:
     volumes:
       - ${HOME}/.deegree:/root/.deegree:rw
     ports:
-      - 8136:8080
+      - "8136:8080"
     environment:
       - DEEGREE_CONSOLE_PW=${PASSWORD:-secret}
       - DEEGREE_API_KEY=${API_KEY:-secretKey}
   database:
     image: postgis/postgis:17-3.5
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -h localhost -p 5432 -U postgres -d postgres" ]
+      interval: 5s
+      retries: 3
     ports:
-      - 5438:5432
+      - "5438:5432"
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
