@@ -47,7 +47,7 @@ services:
       - DEEGREE_CONSOLE_PW=${PASSWORD:-secret}
       - DEEGREE_API_KEY=${API_KEY:-secretKey}
   pg_db:
-    image: postgis/postgis:17-3.5
+    image: postgis/postgis:18-3.6
     platform: linux/amd64
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -h localhost -p 5432 -U postgres -d postgres" ]
@@ -59,7 +59,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
   mssql_db:
-    image: mcr.microsoft.com/mssql/server:2019-latest
+    image: mcr.microsoft.com/mssql/server:2025-latest
     platform: linux/amd64
     ports:
       - "1433:1433"
