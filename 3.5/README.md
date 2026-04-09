@@ -1,4 +1,4 @@
-Latest deegree webservice from the deegree.org website using Apache Tomcat 9 with OpenJDK 11.
+deegree webservice 3.5 from the deegree.org website using Apache Tomcat 9 with OpenJDK 11.
 
 ## Build
 
@@ -22,4 +22,4 @@ where $IP is the IP address of host.
 
 ## Documentation
 
-The documentation is accessible at http://localhost:8082/deegree-webservices-handbook-3.5.14/index.html
+The documentation is accessible at http://localhost:8082/deegree-webservices-handbook-3.5.17/index.html
