@@ -8,12 +8,12 @@ provides all information about Docker!
 
 The OSGeo project deegree publishes it's container images here: https://hub.docker.com/r/deegree/deegree3-docker/
 
-## Run deegree with PostgreSQL 15/PostGIS 3.5
+## Run deegree with PostgreSQL 18/PostGIS 3.6
 
 Get docker image for PostgreSQL DB and start the container:
 
-    % docker pull postgis/postgis:15-3.5
-    % docker run -p 5432:5432 --name db -e POSTGRES_PASSWORD=secretpassword -d postgis/postgis:15-3.5
+    % docker pull postgis/postgis:18-3.6
+    % docker run -p 5432:5432 --name db -e POSTGRES_PASSWORD=secretpassword -d postgis/postgis:18-3.6
 
 see https://hub.docker.com/r/postgis/postgis/ for more information.
 
