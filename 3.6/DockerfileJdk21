@@ -4,12 +4,12 @@
 # under LGPL 2.1 (LICENSE.TXT) Copyright 2020 Torsten Friebe <tfr@users.sourceforge.net>
 FROM tomcat:11-jdk21-temurin
 
-RUN apt-get update && apt-get -yq install zip
+RUN apt-get update && apt-get -yq install unzip
 
 LABEL maintainer="Torsten Friebe <tfr@users.sourceforge.net>"
 
 # set deegree version
-ARG DEEGREE_VERSION=3.6.9
+ARG DEEGREE_VERSION=3.6.10
 
 # API key to use; if empty API key will not change
 ENV DEEGREE_API_KEY=

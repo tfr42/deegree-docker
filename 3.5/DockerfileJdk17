@@ -5,7 +5,7 @@
 FROM maven:3.9-eclipse-temurin-17 AS builder
 
 ARG REPO_URL=https://repo.deegree.org
-ARG DEEGREE_VERSION=3.5.17
+ARG DEEGREE_VERSION=3.5.18
 ARG TC_MIG_VERSION=1.0.12
 
 WORKDIR /build_deegree/
